@@ -1,23 +1,17 @@
 #include <iostream>
 
+/** prints the menu*/
 void printMenu()
 {
-	//1- Print help
 	std::cout << "1: Print Help" << std::endl;
-	//2- Print exchange stats
-	std::cout << "2: Print exchange stats" << std::endl;
-	//3- Make an offer
-	std::cout << "3: Make an offer" << std::endl;
-	//4- Make a bid
-	std::cout << "4: Make a bid" << std::endl;
-	//5- View wallet
-	std::cout << "5: View wallet" << std::endl;
-	//6- Next timestep/Continue
+	std::cout << "2: Print exchange stats" << std::endl;	
+	std::cout << "3: Make an offer" << std::endl;	
+	std::cout << "4: Make a bid" << std::endl;	
+	std::cout << "5: View wallet" << std::endl;	
 	std::cout << "6: Next Timestep/Continue" << std::endl;
 
 	std::cout << "==========================" << std::endl;
 	std::cout << "Type in 1-6 to choose an option" << std::endl;
-
 }
 
 void printHelp()
@@ -64,12 +58,8 @@ void processUserOption(int userOption)
 	if (userOption == 0 || userOption > 6) //bad input
 
 	{
-
 		std::cout << "Invalid choice. Choose 1-6" << std::endl;
-
 	}
-
-
 
 	if (userOption == 1)
 
@@ -77,15 +67,11 @@ void processUserOption(int userOption)
 		printHelp();
 	}
 
-
-
 	if (userOption == 2)
 
 	{
 		printMarketStats();
 	}
-
-
 
 	if (userOption == 3)
 
@@ -93,23 +79,17 @@ void processUserOption(int userOption)
 		enterOffer();
 	}
 
-
-
 	if (userOption == 4)
 
 	{
 		enterBid();
 	}
 
-
-
 	if (userOption == 5)
 
 	{
 		printWallet();
 	}
-
-
 
 	if (userOption == 6)
 
@@ -119,16 +99,13 @@ void processUserOption(int userOption)
 }
 
 
-
 int main()
-{	
+{
 	while (true) 
 	{
-		
 		printMenu();		
 		int userOption = getUserOption();
 		processUserOption(userOption);
-	
 	}
 	return 0;
 }
