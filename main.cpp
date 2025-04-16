@@ -20,6 +20,36 @@ void printMenu()
 
 }
 
+void printHelp()
+{
+	std::cout << "Your aim is to make money. Analize the market and make bids and offers" << std::endl;
+}
+
+void printMarketStats()
+{
+	std::cout << "Market looks good" << std::endl;
+}
+
+void enterOffer()
+{
+	std::cout << "Make an offer." << std::endl;
+}
+
+void enterBid()
+{
+	std::cout << "Make a bid - enter the amount" << std::endl;
+}
+
+void printWallet()
+{
+	std::cout << "Your wallet is empty" << std::endl;
+}
+
+void goToNextTimeframe()
+{
+	std::cout << "Next timestamp/continue" << std::endl;
+}
+
 int getUserOption() 
 {
 	int userOption;
@@ -44,9 +74,7 @@ void processUserOption(int userOption)
 	if (userOption == 1)
 
 	{
-
-		std::cout << "Your aim is to make money. Analize the market and make bids and offers" << std::endl;
-
+		printHelp();
 	}
 
 
@@ -54,9 +82,7 @@ void processUserOption(int userOption)
 	if (userOption == 2)
 
 	{
-
-		std::cout << "Market looks good" << std::endl;
-
+		printMarketStats();
 	}
 
 
@@ -64,9 +90,7 @@ void processUserOption(int userOption)
 	if (userOption == 3)
 
 	{
-
-		std::cout << "Make an offer." << std::endl;
-
+		enterOffer();
 	}
 
 
@@ -74,9 +98,7 @@ void processUserOption(int userOption)
 	if (userOption == 4)
 
 	{
-
-		std::cout << "Make a bid - enter the amount" << std::endl;
-
+		enterBid();
 	}
 
 
@@ -84,9 +106,7 @@ void processUserOption(int userOption)
 	if (userOption == 5)
 
 	{
-
-		std::cout << "Your wallet is empty" << std::endl;
-
+		printWallet();
 	}
 
 
@@ -94,11 +114,11 @@ void processUserOption(int userOption)
 	if (userOption == 6)
 
 	{
-
-		std::cout << "Next timestamp/continue" << std::endl;
-
+		goToNextTimeframe();
 	}
 }
+
+
 
 int main()
 {	
