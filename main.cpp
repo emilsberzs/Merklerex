@@ -16,13 +16,13 @@ class OrderBookEntry
 			std::string product,
 			OrderBookType orderType
 			)
-
+			:price(price),
+			amount(amount),
+			timestamp(timestamp),
+			product(product),
+			orderType(orderType)
 		{
-			this->price = price;
-			this->amount = amount;
-			this->timestamp = timestamp;
-			this->product = product;
-			this->orderType = orderType;
+			
 		}
 		
 			
