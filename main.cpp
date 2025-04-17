@@ -162,14 +162,17 @@ int main()
 	}
 		*/
 
+	std::vector<OrderBookEntry> orders;
+
+
 	OrderBookEntry order1{  1000,
 							0.001,
 							"2020/03/17 17:01:24.884492" ,
 							"BTC / ETH" ,
 							OrderBookType::bid };
 
-
-	std::cout << order1.amount << std::endl;
+	orders.push_back(order1);
+	std::cout << orders[0].price << std::endl;
 	
 
 	return 0;
