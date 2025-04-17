@@ -2,6 +2,38 @@
 #include <string>
 #include <vector>
 
+enum class OrderBookType {bid,ask};
+
+class OrderBookEntry
+{
+	public:
+
+
+		OrderBookEntry(
+			double price,
+			double amount,
+			std::string timestamp,
+			std::string product,
+			OrderBookType orderType
+			)
+
+		{
+			this->price = price;
+			this->amount = amount;
+			this->timestamp = timestamp;
+			this->product = product;
+			this->orderType = orderType;
+		}
+		
+			
+		
+		double price;
+		double amount;
+		std::string timestamp;
+		std::string product;
+		OrderBookType orderType;
+};
+
 /** prints the menu*/
 void printMenu()
 {
@@ -103,16 +135,10 @@ void processUserOption(int userOption)
 
 int main()
 {
+	/*
 	while (true) 
 	{
 		//Good way of constraining, normally put in a header file
-		enum class OrderBookType {bid,ask};
-
-		/*double price = 5319.4500228;
-		double amount = 0.00020075;
-		std::string timestamp{ '2020/03/17 17:01:24.884492' };
-		std::string product{ 'eth/btc' };
-		orderbooktype ordertype = orderbooktype::bid*/
 
 		std::vector<double> prices;
 		std::vector<double> amounts;
@@ -134,5 +160,17 @@ int main()
 		int userOption = getUserOption();
 		processUserOption(userOption);
 	}
+		*/
+
+	OrderBookEntry order1{  1000,
+							0.001,
+							"2020/03/17 17:01:24.884492" ,
+							"BTC / ETH" ,
+							OrderBookType::bid };
+
+
+	std::cout << order1.amount << std::endl;
+	
+
 	return 0;
 }
