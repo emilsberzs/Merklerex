@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <vector>
 
 /** prints the menu*/
 void printMenu()
@@ -103,6 +105,31 @@ int main()
 {
 	while (true) 
 	{
+		//Good way of constraining, normally put in a header file
+		enum class OrderBookType {bid,ask};
+
+		/*double price = 5319.4500228;
+		double amount = 0.00020075;
+		std::string timestamp{ '2020/03/17 17:01:24.884492' };
+		std::string product{ 'eth/btc' };
+		orderbooktype ordertype = orderbooktype::bid*/
+
+		std::vector<double> prices;
+		std::vector<double> amounts;
+		std::vector<std::string> timestamps;
+		std::vector<std::string> products;
+		std::vector<OrderBookType> orderTypes;
+
+		prices.push_back(5000.01);
+		amounts.push_back(0.001);
+		timestamps.push_back("2020/03/17 17:01:24.884492");
+		products.push_back("BTC / ETH");
+		orderTypes.push_back(OrderBookType::bid);
+			
+		std::cout << "prices: " << prices[0] << std::endl;
+
+
+
 		printMenu();		
 		int userOption = getUserOption();
 		processUserOption(userOption);
