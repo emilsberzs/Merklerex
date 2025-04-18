@@ -1,38 +1,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
-enum class OrderBookType {bid,ask};
-
-class OrderBookEntry
-{
-	public:
+#include "OrderBookEntry.h"
 
 
-		OrderBookEntry(
-			double price,
-			double amount,
-			std::string timestamp,
-			std::string product,
-			OrderBookType orderType
-			)
-			:price(price),
-			amount(amount),
-			timestamp(timestamp),
-			product(product),
-			orderType(orderType)
-		{
-			
-		}
-		
-			
-		
-		double price;
-		double amount;
-		std::string timestamp;
-		std::string product;
-		OrderBookType orderType;
-};
 
 /** prints the menu*/
 void printMenu()

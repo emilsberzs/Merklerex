@@ -1,12 +1,13 @@
 #include "OrderBookEntry.h"
 
+
 OrderBookEntry::OrderBookEntry(
-					double price,
-					double amount,
-					std::string timestamp,
-					std::string product,
-					OrderBookType orderType
-						)
+	double price,
+	double amount,
+	std::string timestamp,
+	std::string product,
+	OrderBookType orderType
+)
 	:price(price),
 	amount(amount),
 	timestamp(timestamp),
@@ -15,6 +16,3 @@ OrderBookEntry::OrderBookEntry(
 {
 
 }
-
-
-
