@@ -132,6 +132,66 @@ void processUserOption(int userOption)
 	}
 }
 
+//Worksheet functions
+double computeAveragePrice(std::vector <OrderBookEntry>& entries)
+{
+	double averagePrice{};
+	for (const OrderBookEntry& e : entries) 
+	{
+		averagePrice += e.price;
+	}
+	averagePrice = averagePrice / entries.size();
+	return averagePrice;
+}
+
+double computeLowPrice(std::vector < OrderBookEntry>& entries)
+{
+	double lowPrice = entries[0].price;
+	for (unsigned int i = 1; i < entries.size(); ++i) 
+	{
+		if (entries[i].price < lowPrice) 
+		{
+			lowPrice = entries[i].price;
+		}
+	}
+	return lowPrice;
+
+}
+
+double computeHighPrice(std::vector < OrderBookEntry>& entries)
+{
+	double highPrice = entries[0].price;
+
+	for (const OrderBookEntry& e : entries)
+	{
+		if (e.price > highPrice)
+		{
+			highPrice = e.price;
+		}
+	}
+
+	return highPrice;
+}
+
+double computePriceSpread(std::vector <OrderBookEntry>& entries)
+{
+	double minPrice = entries[0].price;
+	double maxPrice = entries[0].price;
+
+	for (const OrderBookEntry& e : entries)
+	{
+		if (e.price < minPrice)
+		{
+			minPrice = e.price;
+		}
+		if (e.price > maxPrice)
+		{
+			maxPrice = e.price;
+		}
+	}
+
+	return maxPrice - minPrice;
+}
 
 int main()
 {
@@ -176,9 +236,39 @@ int main()
 							"2020/03/17 17:01:24.884493" ,
 							"BTC / USD" ,
 							OrderBookType::ask };
+	OrderBookEntry order3{  500,
+							0.8,
+							"2020/03/17 17:01:24.884492" ,
+							"BTC / ETH" ,
+							OrderBookType::bid };
+	
+	OrderBookEntry order4{  750,
+							0.03,
+							"2020/03/17 17:01:24.884493" ,
+							"BTC / USD" ,
+							OrderBookType::ask };
 
+	
+	
+	
 	orders.push_back(order1);
 	orders.push_back(order2);
+	orders.push_back(order3);
+	orders.push_back(order4);
+	
+	
+
+
+	double lowPrice = computeLowPrice(orders);
+	double highPrice = computeHighPrice(orders);
+	double averagePrice = computeAveragePrice(orders);
+	double priceSpread = computePriceSpread(orders);
+
+
+	std::cout << "Lowest price is: " << lowPrice << std::endl;
+	std::cout << "Highest price is: " << highPrice << std::endl;
+	std::cout << "Average price is: " << averagePrice << std::endl;
+	std::cout << "Price spread is : " << priceSpread << std::endl;
 	
 	//Iteration. & just ensures no copy is made. Iterating by reference. More efficient.
 	/*for (OrderBookEntry& order : orders)
@@ -193,16 +283,10 @@ int main()
 	}*/
 	
 	//orders.at(i).price   More object style syntax to access stuff in vector.
-	for (unsigned int i=0; i<orders.size(); ++i)
-	{
-		std::cout << "The price is: " <<orders.at(i).price << std::endl;
-	}
-
-	
-
-
-	
-	
+	//for (unsigned int i=0; i<orders.size(); ++i)
+	//{
+	//	std::cout << "The price is: " <<orders.at(i).price << std::endl;
+	//}
 
 	return 0;
 }
