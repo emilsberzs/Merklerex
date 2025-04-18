@@ -170,9 +170,38 @@ int main()
 							"2020/03/17 17:01:24.884492" ,
 							"BTC / ETH" ,
 							OrderBookType::bid };
+	
+	OrderBookEntry order2{  2000,
+							0.002,
+							"2020/03/17 17:01:24.884493" ,
+							"BTC / USD" ,
+							OrderBookType::ask };
 
 	orders.push_back(order1);
-	std::cout << orders[0].price << std::endl;
+	orders.push_back(order2);
+	
+	//Iteration. & just ensures no copy is made. Iterating by reference. More efficient.
+	/*for (OrderBookEntry& order : orders)
+	{
+		std::cout << "The price is: " <<order.price << std::endl;
+	}*/
+
+	//Array style for loop. ++i does less iterations than i++. ++i increments in place.
+	/*for (unsigned int i=0; i<orders.size(); ++i)
+	{
+		std::cout << "The price is: " <<orders[i].price << std::endl;
+	}*/
+	
+	//orders.at(i).price   More object style syntax to access stuff in vector.
+	for (unsigned int i=0; i<orders.size(); ++i)
+	{
+		std::cout << "The price is: " <<orders.at(i).price << std::endl;
+	}
+
+	
+
+
+	
 	
 
 	return 0;
