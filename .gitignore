@@ -4,13 +4,17 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+
+#Just some practic files
+test.cpp
+Vec3D.cpp
+Vec3D.h
 # User-specific files
 *.rsuser
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
-test.cpp
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
