@@ -195,5 +195,6 @@ void MerkelMain::processUserOption(int userOption)
 //	}
 //
 //	return maxPrice - minPrice;
+// checking if VS22 works with github
 //}
 
